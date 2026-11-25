@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 3DShift — 100% Client-Side 3D File Converter MVP
 
-## Getting Started
+A modern, fast, "iLovePDF-style" 3D file conversion suite built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and **Three.js**.
 
-First, run the development server:
+Everything runs **100% client-side** inside the user's browser—no 3D files or geometry data are ever uploaded to any server.
 
+---
+
+## 🚀 Features
+
+- **GLB to USDZ (`/glb-to-usdz`)**: Convert glTF / GLB models into Apple AR Quick Look USDZ files ready for iPhone, iPad, Mac, and Apple Vision Pro.
+- **OBJ to GLB (`/obj-to-glb`)**: Convert classic Wavefront OBJ mesh files into compact, GPU-ready binary GLB files with calculated vertex normals.
+- **FBX to GLB (`/fbx-to-glb`)**: Convert complex Autodesk Filmbox (binary & ASCII) models into standardized web-ready GLB containers.
+- **Interactive 3D Viewport**:
+  - Full Three.js WebGL canvas with `OrbitControls` (smooth damping, pan, rotate, zoom).
+  - Studio lighting setup (ambient, key light, fill light, rim light, hemisphere light).
+  - Auto-centering & camera depth framing for any scale model.
+  - Viewport toolbar: Reset Camera, Shaded/Wireframe toggle, Floor Grid toggle, Auto-Turntable spin, and Background themes (Dark, Slate, Studio Light, Grid).
+  - Live Model Stats HUD: Triangle count, Vertex count, Mesh count, Bounding Box dimensions, and formatted file size.
+- **Instant Client-Side Conversion**:
+  - Drag-and-drop file upload with format validation.
+  - "Try Sample Model" one-click button on each converter page for instant testing.
+  - Progress feedback states (`reading` ➔ `parsing` ➔ `optimizing` ➔ `exporting` ➔ `completed`).
+  - Celebratory confetti burst upon completion.
+  - Instant local download link with output file size badge.
+- **SEO & Information Rich**:
+  - Step-by-step "How to Use" section.
+  - In-depth format comparison table (GLB vs USDZ vs OBJ vs FBX).
+  - Interactive FAQ accordions for each route.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/) (App Router, Turbopack)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **3D Engine**: [Three.js](https://threejs.org/) (`GLTFLoader`, `OBJLoader`, `FBXLoader`, `GLTFExporter`, `USDZExporter`, `OrbitControls`)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animation & Effects**: `canvas-confetti`
+
+---
+
+## 📦 Getting Started
+
+### 1. Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the development server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) with your browser to explore the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for production
+```bash
+npm run build
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔒 Privacy & Security
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Unlike conventional 3D converters that transmit your files to cloud servers, **3DShift processes all 3D files locally in browser memory** using WebGL and WebAssembly. Your proprietary CAD, gaming, and 3D assets never leave your device.
