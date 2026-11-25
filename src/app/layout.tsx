@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import AdSenseScript from '../components/AdSenseScript';
@@ -59,6 +60,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieConsent />
+        <SpeedInsights />
       </body>
     </html>
   );
